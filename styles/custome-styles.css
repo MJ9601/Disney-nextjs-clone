@@ -6,3 +6,9 @@
     @apply bg-[#0B1120];
   }
 }
+
+@layer components {
+  .header-link {
+    @apply flex gap-2 pl-5 pr-1 py-2 uppercase cursor-pointer relative before:absolute before:w-[100%] before:h-[100%] before:top-0 before:left-[-100%] overflow-hidden before:border-b-2 hover:before:left-0 before:transition-all before:duration-200 font-semibold;
+  }
+}

@@ -1,13 +1,16 @@
-import React, { ReactElement } from "react";
-
 const HeaderOption = ({
   Icon,
   title,
 }: {
-  Icon: ReactElement;
-  title: string;
+  Icon?: JSX.Element | any;
+  title?: string;
 }) => {
-  return <div>HeaderOption</div>;
+  return (
+    <div className="header-link">
+      {Icon && <Icon className="text-white h-6" />}
+      <span>{title}</span>
+    </div>
+  );
 };
 
 export default HeaderOption;
