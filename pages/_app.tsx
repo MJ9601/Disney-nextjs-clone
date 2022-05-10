@@ -1,8 +1,38 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import "../styles/custome-styles.css";
+import type { AppProps } from "next/app";
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
+import Head from "next/head";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || ((page) => page);
+  return (
+    <>
+      <Head>
+        <title>Disney</title>
+        <link
+          href="/images/logo.png"
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+        />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+      </Head>
+      <>{getLayout(<Component {...pageProps} />)}</>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
