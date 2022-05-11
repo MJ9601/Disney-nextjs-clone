@@ -9,7 +9,6 @@ import {
   StarIcon,
 } from "@heroicons/react/solid";
 import { DeviceTvOld, Movie } from "tabler-icons-react";
-
 const Header = ({
   setSidebarShow,
   sidebarShow,
@@ -20,6 +19,10 @@ const Header = ({
   const user = true;
   return (
     <div className="px-4 shadow-gray-700 shadow py-2 mx-auto flex justify-between items-center sticky top-0 z-[100] bg-[#0B1120]">
+      <MenuIcon
+        onClick={() => setSidebarShow(!sidebarShow)}
+        className="block lg:hidden text-white h-10 cursor-pointer hover:bg-gray-400 rounded-full p-1 transition-all"
+      />
       <div className="flex gap-9 justify-between items-center">
         <Image src="/images/logo.png" height={50} width={90} />
         <div className="hidden lg:flex gap-2 lg:gap-4 items-center">
@@ -46,11 +49,6 @@ const Header = ({
             />
           </div>
         )}
-
-        <MenuIcon
-          onClick={() => setSidebarShow(!sidebarShow)}
-          className="block lg:hidden text-white h-10 cursor-pointer hover:bg-gray-400 rounded-full p-1 transition-all"
-        />
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
+import { Session } from "inspector";
+import { GetServerSideProps, GetServerSidePropsResult } from "next";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { ReactElement } from "react";
+import { Context, ContextType, ReactElement } from "react";
 import HeroHome from "../components/HeroHome";
 import PrimaryRow from "../components/PrimaryRow";
 import Row from "../components/Row";
@@ -22,3 +25,13 @@ const Home = () => {
 
 Home.getLayout = (page: ReactElement) => <PageLayout>{page}</PageLayout>;
 export default Home;
+
+export const getServerSideProps = async (ctx: any) => {
+  const session = await getSession(ctx);
+
+  return {
+    props: {
+      session,
+    },
+  };
+};
