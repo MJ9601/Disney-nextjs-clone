@@ -9,6 +9,8 @@ import {
   StarIcon,
 } from "@heroicons/react/solid";
 import { DeviceTvOld, Movie } from "tabler-icons-react";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const Header = ({
   setSidebarShow,
   sidebarShow,
@@ -16,7 +18,9 @@ const Header = ({
   setSidebarShow: any | React.Dispatch<React.SetStateAction<boolean>>;
   sidebarShow: boolean;
 }) => {
-  const user = true;
+  const { data: session, status } = useSession();
+  console.log(session);
+
   return (
     <div className="px-4 shadow-gray-700 shadow py-2 mx-auto flex justify-between items-center sticky top-0 z-[100] bg-[#0B1120]">
       <MenuIcon
@@ -35,9 +39,12 @@ const Header = ({
         </div>
       </div>
       <div className="flex gap-3 mr-2 md:mr-4 justify-center items-center text-white">
-        {!user ? (
+        {!session ? (
           <>
-            <button className="text-xl uppercase px-2 py-1 rounded-sm hover:bg-gray-500 cursor-pointer transition-all">
+            <button
+              className="text-xl uppercase px-2 py-1 rounded-sm hover:bg-gray-500 cursor-pointer transition-all"
+              onClick={() => signIn()}
+            >
               Login
             </button>
           </>
@@ -46,6 +53,7 @@ const Header = ({
             <img
               src="/images/logo.png"
               className="w-[25px] h-[25px] object-contain"
+              onClick={() => signOut()}
             />
           </div>
         )}

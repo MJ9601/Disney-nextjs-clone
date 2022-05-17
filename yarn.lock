@@ -437,6 +437,11 @@
   "resolved" "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz"
   "version" "1.2.1"
 
+"@next-auth/firebase-adapter@^0.1.2-pr.183-76202b42.8":
+  "integrity" "sha512-0zAPcY3YgTB0Od05hhfa1zFrpjOtvu2n/xHPFpk70ideCbxy5lXlojHNm+NRKwSeWx2nkwF3YqIEZVnsOaYnZA=="
+  "resolved" "https://registry.npmjs.org/@next-auth/firebase-adapter/-/firebase-adapter-0.1.2-pr.183-76202b42.8.tgz"
+  "version" "0.1.2-pr.183-76202b42.8"
+
 "@next/env@12.1.6":
   "integrity" "sha512-Te/OBDXFSodPU6jlXYPAXpmZr/AkG6DCATAxttQxqOWaq6eDFX25Db3dK0120GZrSZmv4QCe9KsZmJKDbWs4OA=="
   "resolved" "https://registry.npmjs.org/@next/env/-/env-12.1.6.tgz"
@@ -1328,7 +1333,7 @@
   dependencies:
     "locate-path" "^2.0.0"
 
-"firebase@^9.8.1":
+"firebase@^9.0.0-beta.8", "firebase@^9.8.1":
   "integrity" "sha512-VyM+3ijzB1Q24b9v6HzVOB0bXNy0a/maOZlmv2P8M29VXfrS/npo6zntNiOEtcjrCoItZIuWFH4oDGiYkPHxbg=="
   "resolved" "https://registry.npmjs.org/firebase/-/firebase-9.8.1.tgz"
   "version" "9.8.1"
@@ -1877,7 +1882,7 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"next-auth@^4.3.4":
+"next-auth@^4.3.4", "next-auth@>=4":
   "integrity" "sha512-8dGkNicbxY2BYsJq4uOJIEsGt39wXj5AViTBsVfbRQqtAFmZmXYHutf90VBmobm8rT2+Xl60HDUTkuVVK+x+xw=="
   "resolved" "https://registry.npmjs.org/next-auth/-/next-auth-4.3.4.tgz"
   "version" "4.3.4"

@@ -21,4 +21,12 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
+// import firebase from "firebase/compat/app";
+// import "firebase/firestore";
+
+// const firestore = (
+//   firebase.apps[0] ?? firebase.initializeApp(firebaseConfig)
+// ).firestore();
+
+// export { firestore };
 export { app, auth, provider, db };
