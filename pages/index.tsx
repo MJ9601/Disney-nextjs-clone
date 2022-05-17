@@ -1,8 +1,6 @@
-import { Session } from "inspector";
-import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { Context, ContextType, ReactElement } from "react";
+import { ReactElement } from "react";
 import HeroHome from "../components/HeroHome";
 import PrimaryRow from "../components/PrimaryRow";
 import Row from "../components/Row";
