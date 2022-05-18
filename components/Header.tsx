@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/solid";
 import { DeviceTvOld, Movie } from "tabler-icons-react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Header = ({
   setSidebarShow,
@@ -18,8 +19,9 @@ const Header = ({
   setSidebarShow: any | React.Dispatch<React.SetStateAction<boolean>>;
   sidebarShow: boolean;
 }) => {
-  const { data: session, status } = useSession();
-  console.log(session);
+  const { data, status } = useSession();
+  console.log(data);
+  const router = useRouter();
 
   return (
     <div className="px-4 shadow-gray-700 shadow py-2 mx-auto flex justify-between items-center sticky top-0 z-[100] bg-[#0B1120]">
@@ -28,7 +30,12 @@ const Header = ({
         className="block lg:hidden text-white h-10 cursor-pointer hover:bg-gray-400 rounded-full p-1 transition-all"
       />
       <div className="flex gap-9 justify-between items-center">
-        <Image src="/images/logo.png" height={50} width={90} />
+        <Image
+          src="/images/logo.png"
+          height={50}
+          width={90}
+          onClick={() => router.push("/")}
+        />
         <div className="hidden lg:flex gap-2 lg:gap-4 items-center">
           <HeaderOption title="home" Icon={HomeIcon} />
           <HeaderOption title="Search" Icon={SearchIcon} />
@@ -39,7 +46,7 @@ const Header = ({
         </div>
       </div>
       <div className="flex gap-3 mr-2 md:mr-4 justify-center items-center text-white">
-        {!session ? (
+        {status !== "authenticated" ? (
           <>
             <button
               className="text-xl uppercase px-2 py-1 rounded-sm hover:bg-gray-500 cursor-pointer transition-all"
@@ -51,8 +58,9 @@ const Header = ({
         ) : (
           <div className="p-2 rounded-full cursor-pointer ring-2 ring-red-600">
             <img
-              src="/images/logo.png"
+              src={data ? data?.user?.image || "" : ""}
               className="w-[25px] h-[25px] object-contain"
+              alt={data?.user?.name || ""}
               onClick={() => signOut()}
             />
           </div>
