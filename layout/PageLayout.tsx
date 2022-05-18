@@ -13,7 +13,7 @@ const PageLayout = ({
   const [sidebarShow, setSidebarShow] = useState(false);
 
   return (
-    <div className="relative w-[100vw] min-h-[100vh] text-white">
+    <div className="relative w-[100vw] min-h-[100vh] text-white scrollbar-hide">
       <Header setSidebarShow={setSidebarShow} sidebarShow={sidebarShow} />
       <Sidebar sidebarShow={sidebarShow} />
       <div className="w-[100%] min-h-[100vh]">{children}</div>
