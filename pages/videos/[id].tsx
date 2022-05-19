@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import PageLayout from "../../layout/PageLayout";
 import Requests, {
   IMAGE_BASE_URL,
@@ -8,10 +8,14 @@ import { MovieObjectOnPage, MoviesRespObj } from "../../typing";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { PlayerPlay, Plus } from "tabler-icons-react";
-import { UserGroupIcon } from "@heroicons/react/solid";
+import { UserGroupIcon, XIcon } from "@heroicons/react/solid";
+import ReactPlayer from "react-player/youtube";
 
 const VideoPage = ({ movie }: { movie: MovieObjectOnPage }) => {
-  console.log(movie);
+  const [player, setPlayer] = useState(false);
+  const index = movie.videos.results.findIndex(
+    (element) => element.type === "Trailer"
+  );
   return (
     <>
       <Head>
@@ -31,7 +35,7 @@ const VideoPage = ({ movie }: { movie: MovieObjectOnPage }) => {
             <button className="general white">
               <PlayerPlay className="fill-gray-700" /> play
             </button>
-            <button className="general black">
+            <button className="general black" onClick={() => setPlayer(true)}>
               <PlayerPlay className="h-6 fill-white" /> trailer
             </button>
             <button className="general black icon">
@@ -56,6 +60,28 @@ const VideoPage = ({ movie }: { movie: MovieObjectOnPage }) => {
             <p className="tracking-normal text-lg">{movie.overview}</p>
           </div>
         </div>
+        {player && (
+          <div className="absolute inset-0 bg-gray-900 bg-opacity-80 z-[150]">
+            <div className="absolute inset-y-[15%] lg:inset-y-[5%] inset-x-[10%]">
+              <div className="w-[100%] bg-black py-2 rounded-t-md flex items-center justify-between px-3">
+                <h2>{movie?.title}</h2>
+                <XIcon
+                  className="h-8 hover:text-red-500 transition-all duration-200 cursor-pointer"
+                  onClick={() => setPlayer(false)}
+                />
+              </div>
+              <div className="relative w-[100%] h-[70%] lg:h-[85%]">
+                <ReactPlayer
+                  url={`https://www.youtube.com/watch?v=${movie.videos?.results[index]?.key}`}
+                  controls
+                  playing={player}
+                  height="100%"
+                  width="100%"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

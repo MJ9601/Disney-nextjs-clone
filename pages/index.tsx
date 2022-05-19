@@ -35,6 +35,19 @@ const Home = ({ movieObj }: { movieObj: MoviesObject }) => {
             videoSrc="national-geographic.mp4"
           />
         </div>
+        <div className="space-y-4 my-8 py-8">
+          <img
+            src="/images/original.svg"
+            alt=""
+            className="w-[30%] min-w-[250px] mx-auto"
+          />
+          <img src="/images/second.png" alt="" />
+          <div className="w-[100%] flex justify-center">
+            <button className="mx-auto w-[25%] min-w-[250px] bg-blue-700 rounded-sm py-3 px-5 hover:bg-blue-600 transition-all duration-200">
+              Get The Disney Bundle
+            </button>
+          </div>
+        </div>
         <div className="my-8 space-y-4 w-[100%] container mx-auto">
           {Object.values(movieObj).map((movieType, index) => (
             <Row
