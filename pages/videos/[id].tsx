@@ -7,6 +7,8 @@ import Requests, {
 import { MovieObjectOnPage, MoviesRespObj } from "../../typing";
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { PlayerPlay, Plus } from "tabler-icons-react";
+import { UserGroupIcon } from "@heroicons/react/solid";
 
 const VideoPage = ({ movie }: { movie: MovieObjectOnPage }) => {
   console.log(movie);
@@ -15,12 +17,45 @@ const VideoPage = ({ movie }: { movie: MovieObjectOnPage }) => {
       <Head>
         <title>{movie?.original_title}</title>
       </Head>
-      <div className="h-[100vh]">
+      <div className="h-[100vh] relative">
         <img
           src={`${IMAGE_BASE_URL}${movie?.backdrop_path}`}
           alt=""
           className="w-[100%] h-[100%] object-cover"
         />
+        <div className="absolute inset-y-[200px] md:inset-y-[500px] inset-0 z-20 container mx-auto px-3">
+          <h1 className="my-6 text-[45px] font-extrabold tracking-wide font-serif">
+            {movie.original_title || movie.title}
+          </h1>
+          <div className="flex items-center justify-start  gap-4">
+            <button className="general white">
+              <PlayerPlay className="fill-gray-700" /> play
+            </button>
+            <button className="general black">
+              <PlayerPlay className="h-6 fill-white" /> trailer
+            </button>
+            <button className="general black icon">
+              <Plus className="h-6" />
+            </button>
+            <button className=" general black icon">
+              <UserGroupIcon className="h-6" />
+            </button>
+          </div>
+          <div className="flex items-center justify-start gap-1 my-6">
+            <p className="text-sm flex items-center">
+              {movie?.release_date} . {Math.floor(movie?.runtime / 60)}h{" "}
+              {movie?.runtime % 60}m .{" "}
+              {movie.genres.map((genre, index) => (
+                <span className="mx-[3px]" key={index}>
+                  {genre.name}
+                </span>
+              ))}
+            </p>
+          </div>
+          <div className="">
+            <p className="tracking-normal text-lg">{movie.overview}</p>
+          </div>
+        </div>
       </div>
     </>
   );

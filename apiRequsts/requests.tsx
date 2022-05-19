@@ -17,4 +17,4 @@ export default {
 };
 
 export const urlForMovieWithId = (movieId: string | number) =>
-  `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
+  `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=videos`;

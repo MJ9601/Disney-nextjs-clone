@@ -48,6 +48,7 @@ export interface MovieObjectOnPage {
   release_date: string;
   status: string;
   tagline: string;
+  title: string;
   vote_average: number;
   vote_count: number;
   runtime: number;
@@ -65,4 +66,9 @@ export interface MovieObjectOnPage {
       origin_country: string;
     }
   ];
+  videos: {
+    results: [
+      { id: string; key: string; type: string; name: string; site: string }
+    ];
+  };
 }

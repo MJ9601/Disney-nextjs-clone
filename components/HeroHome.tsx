@@ -22,8 +22,8 @@ const HeroHome = ({ movieList }: { movieList: MovieRespObj[] }) => {
             className=" object-cover"
           />
           <div className="absolute top-[20%] bg-opacity-5 text-left px-8 left-0 right-0 bottom-0 bg-gradient-to-t from-[#111]  to-transparent">
-            <div className="absolute bottom-0 top-[50%] px-8 left-0 right-0">
-              <h3 className="font-semibold text-4xl shadow-sm mb-4">
+            <div className="absolute bottom-0 top-[30%] md:top-[50%] px-8 left-0 right-0">
+              <h3 className="font-semibold text-xl  md:text-4xl shadow-sm mb-4">
                 {movie?.name || movie?.title || movie?.original_title}
               </h3>
               <h4 className="space-x-3">

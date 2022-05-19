@@ -21,13 +21,6 @@ export default NextAuth({
     GoogleProvider({
       clientId: String(process.env.GOOGLE_ID),
       clientSecret: String(process.env.GOOGLE_SECRECT),
-      authorization: {
-        params: {
-          prompt: "consent",
-          response_type: "code",
-          access_type: "offline",
-        },
-      },
     }),
   ],
   adapter: FirebaseAdapter({

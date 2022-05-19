@@ -16,7 +16,7 @@ const PageLayout = ({
     <div className="relative w-[100vw] min-h-[100vh] text-white scrollbar-hide">
       <Header setSidebarShow={setSidebarShow} sidebarShow={sidebarShow} />
       <Sidebar sidebarShow={sidebarShow} />
-      <div className="w-[100%] min-h-[100vh]">{children}</div>
+      <div className="w-[100%]">{children}</div>
       <Footer />
     </div>
   );
