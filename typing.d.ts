@@ -33,3 +33,36 @@ export interface MovieRespObj {
   vote_average?: number;
   vote_count?: number;
 }
+
+export interface MovieObjectOnPage {
+  backdrop_path: string;
+  budget: number;
+  homepage: string;
+  id: number;
+  imdb_id: string;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity?: number;
+  poster_path: string;
+  release_date: string;
+  status: string;
+  tagline: string;
+  vote_average: number;
+  vote_count: number;
+  runtime: number;
+  genres: [
+    {
+      id: number;
+      name: string;
+    }
+  ];
+  production_companies: [
+    {
+      id: number;
+      logo_path: string;
+      name: string;
+      origin_country: string;
+    }
+  ];
+}

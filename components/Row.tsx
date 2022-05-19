@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import { IMAGE_BASE_URL } from "../apiRequsts/requests";
 import { MovieRespObj } from "../typing";
-import RowCard from "./RowCard";
 
 const Row = ({
   title,

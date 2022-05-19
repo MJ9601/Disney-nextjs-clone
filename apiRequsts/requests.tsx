@@ -5,8 +5,6 @@ export const BASE_URL = "https://api.themoviedb.org/3";
 
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
-const MOVIE_ID = "";
-
 export default {
   Trending: `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-US`,
   "Netflix Originals": `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_networks=213`,
@@ -18,6 +16,5 @@ export default {
   Documentaries: `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=99`,
 };
 
-export const fatchMovieById = {
-  fetchMovieById: `${BASE_URL}/movie/${MOVIE_ID}?api_key=${API_KEY}&language=en-US`,
-};
+export const urlForMovieWithId = (movieId: string | number) =>
+  `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
