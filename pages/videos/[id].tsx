@@ -13,7 +13,7 @@ import ReactPlayer from "react-player/youtube";
 
 const VideoPage = ({ movie }: { movie: MovieObjectOnPage }) => {
   const [player, setPlayer] = useState(false);
-  const index = movie.videos.results.findIndex(
+  const index = movie?.videos?.results.findIndex(
     (element) => element.type === "Trailer"
   );
   return (
@@ -49,7 +49,7 @@ const VideoPage = ({ movie }: { movie: MovieObjectOnPage }) => {
             <p className="text-sm flex items-center">
               {movie?.release_date} . {Math.floor(movie?.runtime / 60)}h{" "}
               {movie?.runtime % 60}m .{" "}
-              {movie.genres.map((genre, index) => (
+              {movie?.genres?.map((genre, index) => (
                 <span className="mx-[3px]" key={index}>
                   {genre.name}
                 </span>
